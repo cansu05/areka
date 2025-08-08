@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Container, Box, Typography } from "@mui/material";
 
 const fadeUp = {
   initial: { opacity: 0, y: 50 },
@@ -22,43 +23,50 @@ const fadeRight = {
 };
 
 const ClimateImpact = () => {
-  const src =
-    "https://ourworldindata.org/explorers/co2?country=~OWID_WRL&hideControls=true&Gas+or+Warming=CO%E2%82%82&Accounting=Territorial&Fuel+or+Land+Use+Change=All+fossil+emissions&Count=Cumulative&Relative+to+world+total=false";
-
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-40">
-      <motion.div className="max-w-xl text-center space-y-6" {...fadeUp}>
-        <motion.h2 className="text-4xl font-bold text-gray-700" {...fadeUp}>
-          The Climate Crisis Is Rapidly Escalating
-        </motion.h2>
-
-        <motion.p className="text-gray-700 text-xl" {...fadeUpDelayed}>
-          Many people want to take action but don’t know where to start. Carbon
-          markets are complex, and existing solutions are often expensive,
-          unreliable, or inaccessible.
-        </motion.p>
-
-        <motion.p
-          className="text-emerald-500 font-semibold text-xl"
-          {...fadeRight}
+    <Container maxWidth="lg" sx={{ mt: 10 }}>
+      <Box display="grid" justifyItems="center">
+        <Box
+          component={motion.div}
+          {...fadeUp}
+          textAlign="center"
+          sx={{ maxWidth: 900 }}
         >
-          We now need simple and effective climate action that everyone,
-          everywhere can take.
-        </motion.p>
-      </motion.div>
+          <Typography
+            variant="h4"
+            fontWeight={700}
+            color="text.primary"
+            gutterBottom
+          >
+            The Climate Crisis Is Rapidly Escalating
+          </Typography>
 
-      <motion.div
-        className="aspect-[16/11] w-full overflow-hidden rounded-2xl"
-        {...fadeRight}
-      >
-        <iframe
-          title="Cumulative CO₂ emissions — Our World in Data"
-          src={src}
-          loading="lazy"
-          style={{ border: 0, width: "100%", height: "100%" }}
-        />
-      </motion.div>
-    </section>
+          <Box component={motion.div} {...fadeUpDelayed}>
+            <Typography
+              variant="h6"
+              color="text.secondary"
+              sx={{ fontSize: "1.25rem" }}
+            >
+              Many people want to take action but don’t know where to start.
+              Carbon markets are complex, and existing solutions are often
+              expensive, unreliable, or inaccessible.
+            </Typography>
+          </Box>
+
+          <Box component={motion.div} {...fadeRight} sx={{ mt: 1.5 }}>
+            <Typography
+              variant="h6"
+              color="success.main"
+              fontWeight={600}
+              sx={{ fontSize: "1.25rem" }}
+            >
+              We now need simple and effective climate action that everyone,
+              everywhere can take.
+            </Typography>
+          </Box>
+        </Box>
+      </Box>
+    </Container>
   );
 };
 

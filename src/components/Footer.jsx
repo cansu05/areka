@@ -1,5 +1,14 @@
 import { NavLink } from "react-router";
 import { FaLinkedin, FaXTwitter, FaInstagram } from "react-icons/fa6";
+import {
+  Grid,
+  Typography,
+  Box,
+  IconButton,
+  Link,
+  TextField,
+  Button,
+} from "@mui/material";
 
 const menuItems = [
   "About Us",
@@ -12,59 +21,86 @@ const menuItems = [
 const Footer = () => {
   return (
     <footer className="bg-emerald-500 text-white px-10 py-8">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div>
-          <h3 className="font-bold">
+      <Grid container spacing={4}>
+        <Grid item xs={12} md={4}>
+          <Typography fontWeight="bold">
             AREKA Software and Energy Technologies Inc.
-          </h3>
-          <p>
+          </Typography>
+          <Typography>
             Bilkent Cyberpark, CyberGO Incubation Center, Bilkent Station
             Bilkent, Ankara - TURKEY
-          </p>
-          <p className="mt-2">info@areka.ai</p>
+          </Typography>
+          <Typography mt={2}>info@areka.ai</Typography>
 
-          <p className="mt-4 font-semibold">Follow us</p>
-          <div className="flex gap-4 mt-2 text-2xl">
-            <FaLinkedin className="cursor-pointer hover:text-gray-200" />
-            <FaXTwitter className="cursor-pointer hover:text-gray-200" />
-            <FaInstagram className="cursor-pointer hover:text-gray-200" />
-          </div>
+          <Typography mt={4} fontWeight="bold">
+            Follow us
+          </Typography>
+          <Box display="flex" gap={2} mt={2} fontSize="1.5rem">
+            <IconButton color="inherit">
+              <FaLinkedin />
+            </IconButton>
+            <IconButton color="inherit">
+              <FaXTwitter />
+            </IconButton>
+            <IconButton color="inherit">
+              <FaInstagram />
+            </IconButton>
+          </Box>
 
-          <p className="mt-4">
+          <Typography mt={4}>
             Pay with İyzico, Mastercard, VISA, American Express, Troy
-          </p>
-        </div>
+          </Typography>
+        </Grid>
 
-        <div>
-          <ul className="space-y-2">
+        <Grid item xs={12} md={4}>
+          <Box display="flex" flexDirection="column" gap={1}>
             {menuItems.map((item) => (
-              <li key={item}>
-                <NavLink to="/" className="hover:underline">
-                  {item}
-                </NavLink>
-              </li>
+              <Link
+                key={item}
+                component={NavLink}
+                to="/"
+                underline="hover"
+                color="inherit"
+              >
+                {item}
+              </Link>
             ))}
-          </ul>
-        </div>
+          </Box>
+        </Grid>
 
-        <div>
-          <p className="font-semibold">
+        <Grid item xs={12} md={4}>
+          <Typography fontWeight="bold">
             Stay updated on sustainability and emission trends.
-          </p>
-          <div className="mt-3 flex">
-            <input
+          </Typography>
+          <Box mt={3} display="flex">
+            <TextField
               type="email"
               placeholder="Your email address"
-              className="px-3 py-2 text-black w-full bg-white focus:outline-none focus:ring-0 focus:border-none"
+              size="small"
+              fullWidth
+              variant="outlined"
+              sx={{
+                bgcolor: "white",
+                input: { color: "black" },
+              }}
             />
-            <button className="bg-gray-800 text-white px-4">Subscribe</button>
-          </div>
-        </div>
-      </div>
+            <Button
+              sx={{
+                bgcolor: "grey.900",
+                color: "white",
+                px: 3,
+                "&:hover": { bgcolor: "grey.800" },
+              }}
+            >
+              Subscribe
+            </Button>
+          </Box>
+        </Grid>
+      </Grid>
 
-      <div className="mt-8 text-center text-sm">
-        © 2025. All rights reserved.
-      </div>
+      <Box mt={8} textAlign="center">
+        <Typography variant="body2">© 2025. All rights reserved.</Typography>
+      </Box>
     </footer>
   );
 };
