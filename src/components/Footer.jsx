@@ -1,12 +1,5 @@
 import { NavLink } from "react-router";
-import {
-  FaLinkedin,
-  FaXTwitter,
-  FaInstagram,
-  FaCcMastercard,
-  FaCcVisa,
-  FaCcAmex,
-} from "react-icons/fa6";
+import { FaLinkedin, FaXTwitter, FaInstagram } from "react-icons/fa6";
 
 const menuItems = [
   "About Us",
@@ -20,7 +13,6 @@ const Footer = () => {
   return (
     <footer className="bg-emerald-500 text-white px-10 py-8">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* Company Info */}
         <div>
           <h3 className="font-bold">
             AREKA Software and Energy Technologies Inc.
@@ -43,7 +35,6 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Menu Links */}
         <div>
           <ul className="space-y-2">
             {menuItems.map((item) => (
@@ -56,7 +47,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Newsletter */}
         <div>
           <p className="font-semibold">
             Stay updated on sustainability and emission trends.
@@ -72,7 +62,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Copyright */}
       <div className="mt-8 text-center text-sm">
         © 2025. All rights reserved.
       </div>

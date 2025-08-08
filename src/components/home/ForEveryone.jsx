@@ -24,7 +24,6 @@ const ForEveryone = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
-        {/* Individuals */}
         <motion.div className="space-y-5 text-center max-w-xl" {...fadeUp}>
           <h2 className="text-4xl font-bold text-gray-700">Individuals</h2>
           <p className=" text-gray-700 text-xl">
@@ -49,7 +48,6 @@ const ForEveryone = () => {
           </div>
         </motion.div>
 
-        {/* Businesses */}
         <motion.div
           className="space-y-5 text-center max-w-xl"
           {...fadeUpDelayed}
